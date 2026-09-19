@@ -2,21 +2,51 @@
 package cn.zhuatech.drive.domain;
 import org.springframework.stereotype.Component;
 import java.util.*;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Component
 public class DomainCatalog {
     private final Map<String, WorkflowAction> actions = new LinkedHashMap<>();
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DomainCatalog() {
         actions.put("SUBMIT", new WorkflowAction("SUBMIT", "提交文件发布", List.of("草稿"), "待审核", "OPERATOR"));
         actions.put("APPROVE", new WorkflowAction("APPROVE", "批准文档发布", List.of("待审核"), "已发布", "ADMIN"));
         actions.put("ARCHIVE", new WorkflowAction("ARCHIVE", "归档受控文档", List.of("已发布"), "已归档", "ADMIN"));
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String systemName() { return "知华科技企业网盘与文档管理系统"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String scene() { return "团队空间、文件、版本、在线预览、共享、权限、水印、保留、回收站、检索与审计"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String initialStatus() { return "草稿"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String partyLabel() { return "组织/团队空间"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String amountLabel() { return "存储价值"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String quantityLabel() { return "文件数量"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String dueLabel() { return "共享或保留期限"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<ModuleDefinition> modules() { return List.of(
             new ModuleDefinition("SPACE", "企业与团队空间", "按租户、组织、项目设置容量、负责人和数据边界"),
             new ModuleDefinition("FILE", "文件管理", "支持目录、上传、分片、秒传、预览、下载和回收站"),
@@ -28,7 +58,16 @@ public class DomainCatalog {
             new ModuleDefinition("SEARCH", "全文检索", "检索名称、标签、正文、所有者、版本和权限范围"),
             new ModuleDefinition("AUDIT", "访问审计", "记录上传、预览、下载、共享、授权和删除行为")
         ); }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Map<String, WorkflowAction> actions() { return Collections.unmodifiableMap(actions); }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ModuleDefinition(String code,String name,String description) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record WorkflowAction(String code,String label,List<String> from,String to,String requiredRole) {}
 }

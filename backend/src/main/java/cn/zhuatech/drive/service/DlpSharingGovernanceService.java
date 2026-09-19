@@ -6,9 +6,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class DlpSharingGovernanceService {
     private static final Set<String> LEVELS = Set.of("PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED");
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         List<String> blockers = new ArrayList<>();
         if (!request.malwareScanPassed()) blockers.add("文件安全扫描未通过");
@@ -20,15 +26,24 @@ public class DlpSharingGovernanceService {
         String decision = blockers.isEmpty() ? "ALLOW" : "DENY";
         return new Result(request.fileId(), decision, request.classification(), List.copyOf(blockers), blockers.isEmpty());
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String fileId, @NotBlank String classification,
                           boolean externalSharing, boolean ownerApproved, boolean mfaEnforced,
                           @Min(0) int expiryDays, boolean legalHoldActive, boolean malwareScanPassed) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public Request {
             if (fileId == null || fileId.isBlank()) throw new IllegalArgumentException("fileId is required");
             if (!LEVELS.contains(classification)) throw new IllegalArgumentException("invalid classification");
             if (expiryDays < 0) throw new IllegalArgumentException("expiryDays must be non-negative");
         }
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String fileId, String decision, String classification,
                          List<String> blockers, boolean linkCreationAllowed) {}
 }
