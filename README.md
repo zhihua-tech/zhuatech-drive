@@ -1,5 +1,7 @@
 # ZhuaTech DRIVE｜企业网盘与文档管理系统
 
+[简体中文](README.md) | [English](README.en.md)
+
 ## 企业级 DLP 与外链治理
 
 新增密级、外部分享审批、MFA、链接期限、法律保全和安全扫描控制，详见 [DLP 分享治理](docs/ENTERPRISE_DLP_SHARING.md)。
