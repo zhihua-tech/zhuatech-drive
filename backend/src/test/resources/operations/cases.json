@@ -1,0 +1,45 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "remainingBytes": "#800",
+      "remainingChunks": "#7",
+      "peakBytes": "#928"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "availableBytes": "900"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "completedBytes": "1000"
+    },
+    "expected": {
+      "decision": "PASS",
+      "remainingChunks": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "chunkBytes": "0"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "completedBytes": "1001"
+    },
+    "expected": {},
+    "error": true
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "slug": "drive",
+  "title": "分片上传剩余空间与暂存峰值",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "fileBytes",
+      "label": "文件字节",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "completedBytes",
+      "label": "已传字节",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "chunkBytes",
+      "label": "每片字节",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "1000000000"
+    },
+    {
+      "key": "availableBytes",
+      "label": "可用字节",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "remainingBytes",
+      "label": "待传字节"
+    },
+    {
+      "key": "remainingChunks",
+      "label": "待传片数"
+    },
+    {
+      "key": "peakBytes",
+      "label": "暂存峰值字节"
+    }
+  ],
+  "description": "计算未传字节、分片数和预留一片暂存空间的峰值，不执行文件写入或改变网盘配额。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "fileBytes": "1000",
+        "completedBytes": "200",
+        "chunkBytes": "128",
+        "availableBytes": "2000"
+      }
+    ]
+  }
+}
